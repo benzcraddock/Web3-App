@@ -9,12 +9,12 @@ Users have the ability to view and select from the NFT's displayed horizontally 
 ### To view this project yourself, make changes and provide feedback:
 
 #### Setup project:
-* [X] Create forked copy
-* [X] Clone your own version of repo
-* [X] CD into project base directory `cd benyepunks`
-* [X] Download project dependencies by running `npm install`
+* [X] Create forked copy;
+* [X] Clone your own version of repo;
+* [X] CD into project base directory `cd benyepunks`; and
+* [X] Download project dependencies by running `npm install`.
 
 #### Start the app:
-* [X] `npm run start`, or
-* [X] `yarn run`
+* [X] `npm run start`, or;
+* [X] `yarn run`; and
 * [X] Open http://localhost:3000 with your browser to view the result.
