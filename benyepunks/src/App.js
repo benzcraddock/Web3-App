@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
-import CollectionCard from './components/CollectionCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import PunkList from './components/PunkList';
@@ -13,25 +11,24 @@ function App() {
 
   useEffect(() => {
     const getMyNfts = async () => {
-      const openseaData = await axios.get('https://testnets-api.opensea.io/assets?order_direction=asc&asset_contract_address=%7B%7B0xA455e4839822d1eC47495BEAEBb1EfDaceefC9dD')
-      console.log(openseaData.data.assets);
-      setPunkListData(openseaData.data.assets)
+      const openseaData = await axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0xA455e4839822d1eC47495BEAEBb1EfDaceefC9dD&order_direction=asc')
+      setPunkListData(openseaData.data.assets);
     }
-
     return getMyNfts();
   }, [])
 
   return (
     <div className="app">
       <Header />
-      <CollectionCard
-        id={0}
-        name={'King Punk'}
-        traits={[{value: 7}]}
-        image=""
-      />
-      <Main punkListData={punkListData}/>
-      <PunkList punkListData={punkListData} setSelectedPunk={setSelectedPunk} />
+      {punkListData.length > 0 && (
+        <>
+          <Main punkListData={punkListData} selectedPunk={selectedPunk} />
+          <PunkList
+            punkListData={punkListData}
+            setSelectedPunk={setSelectedPunk}
+          />
+        </>
+      )}
     </div>
   );
 }
